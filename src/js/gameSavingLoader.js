@@ -9,8 +9,10 @@ export default class GameSavingLoader {
 
             read().then((data) => {
                 json(data).then((value) => {
+                    // let obj = JSON.parse(value)
+                    // const obj = value.replace('\\/', '');
 
-                    resolve(new String(value));
+                    resolve(value);
                 })
             });
 
