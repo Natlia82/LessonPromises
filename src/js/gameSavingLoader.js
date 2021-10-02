@@ -5,18 +5,15 @@ import json from './parser';
 export default class GameSavingLoader {
     static load() {
 
-        return new Promise((resolve, reject) => {
+        return read().then(data => json(data));
 
-            read().then((data) => {
-                json(data).then((value) => {
-                    // let obj = JSON.parse(value)
-                    // const obj = value.replace('\\/', '');
+    }
 
-                    resolve(value);
-                })
-            });
+    static convertor(str) {
+        const json = String(str);
+        const obj = JSON.parse(json);
+        return obj;
 
-        });
     }
 
 
